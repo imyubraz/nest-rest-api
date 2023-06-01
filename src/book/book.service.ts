@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from "mongoose";
 
@@ -16,6 +16,11 @@ export class BookService {
     async findAllBooks(): Promise<Book[]>{
         const books = await this.bookModel.find();
         return books;
+    }
+
+    async findBookById(id: string): Promise<Book>{
+        const book = await this.bookModel.findById(id);
+        return book;
     }
 
     async addBook(book: Book): Promise<Book>{
