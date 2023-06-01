@@ -101,3 +101,35 @@ nest g service <module_name>
 ```
 nest g service book
 ```
+
+## Connect with MongoDB
+
+- Install packages
+
+    - For mongodb
+    ```
+    npm install mongodb --save
+    ```
+
+    - For mongoose
+    ```
+    npm install mongoose --save
+    ```
+
+    - For nestjs mongoose
+
+    ```
+    npm install @nestjs/mongoose --save
+    ```
+
+    - For configurations (like .env file configurations)
+
+    ```
+    npm install @nestjs/config --save
+    ```
+
+    - or Install all packages at once
+    ```
+    npm install mongodb mongoose @nestjs/mongoose @nestjs/config --save
+    ```
+
