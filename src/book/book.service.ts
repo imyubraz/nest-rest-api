@@ -48,4 +48,17 @@ export class BookService {
             throw new NotFoundException(`Error occured : ${error}`)
         }
     }
+
+    async deleteBookById(id: string): Promise<Book>{
+        try {
+            const res = await this.bookModel.findByIdAndDelete(id);
+
+            if(!res){
+                throw new Error("Error!")
+            }
+            return res;
+        } catch (error) {
+            throw new NotFoundException(`Error occured : ${error}`)
+        }
+    }
 }
