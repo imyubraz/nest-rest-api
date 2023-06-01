@@ -55,3 +55,49 @@ npm run start:dev
 - Services file (eg app.service.ts) consists of logics for application.
 
 - Controller file (eg app.controller.ts) do mapping of different routes with respective services/logics in app.service.ts
+
+## Create a new module
+
+```
+nest g module <module_name>
+```
+
+```
+nest g module book
+```
+
+- Nest js automatically link newly created module with main/root module i.e app.module.ts. For some reason if it's not done automatically, do it manually.
+
+```python
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { BookModule } from './book/book.module';
+
+@Module({
+  imports: [BookModule],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+```
+
+- Generate controller file for new module
+
+```
+nest g controller <module_name>
+```
+
+```
+nest g controller book
+```
+
+- Generate controller file for new module
+
+```
+nest g service <module_name>
+```
+
+```
+nest g service book
+```
