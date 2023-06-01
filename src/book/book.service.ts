@@ -17,4 +17,10 @@ export class BookService {
         const books = await this.bookModel.find();
         return books;
     }
+
+    async addBook(book: Book): Promise<Book>{
+        const res = await this.bookModel.create(book);
+            // using create() function from mongoose to add/create new book
+        return res
+    }
 }

@@ -17,7 +17,7 @@ export class Book {
     title: string;
     
     @Prop()
-    desriprion: string;
+    description: string;
 
     @Prop()
     author: string;
