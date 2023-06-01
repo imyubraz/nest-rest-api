@@ -32,4 +32,20 @@ export class BookService {
             // using create() function from mongoose to add/create new book
         return res
     }
+
+    async updateBookById(id: string, book: Book): Promise<Book>{
+        try {
+            const res = await this.bookModel.findByIdAndUpdate(id, book, {
+                new: true,
+                runValidators: true,
+            });
+
+            if(!res){
+                throw new Error("Error!")
+            }
+            return res;
+        } catch (error) {
+            throw new NotFoundException(`Error occured : ${error}`)
+        }
+    }
 }
