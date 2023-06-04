@@ -133,3 +133,8 @@ nest g service book
     npm install mongodb mongoose @nestjs/mongoose @nestjs/config --save
     ```
 
+## For Validation pipe we need to install 2 packages (class-validator and class-transformer)
+
+```
+npm install class-validator class-transformer --save
+```
