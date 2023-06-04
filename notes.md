@@ -68,7 +68,7 @@ nest g module book
 
 - Nest js automatically link newly created module with main/root module i.e app.module.ts. For some reason if it's not done automatically, do it manually.
 
-```python
+```javascript
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -84,23 +84,43 @@ export class AppModule {}
 
 - Generate controller file for new module
 
-```
-nest g controller <module_name>
-```
+  ```
+  nest g controller <module_name>
+  ```
 
-```
-nest g controller book
-```
+  ```
+  nest g controller book
+  ```
 
-- Generate controller file for new module
+- Generate controller (--no-spec flag : without spec or test files)
 
-```
-nest g service <module_name>
-```
+  ```
+  nest g controller <module_name> --no-spec
+  ```
 
-```
-nest g service book
-```
+  ```
+  nest g controller book --no-spec
+  ```
+
+- Generate service file for new module
+
+  ```
+  nest g service <module_name>
+  ```
+
+  ```
+  nest g service book
+  ```
+
+- Generate service (--no-spec flag : without spec or test files)
+
+  ```
+  nest g service <module_name> --no-spec
+  ```
+
+  ```
+  nest g service book --no-spec
+  ```
 
 ## Connect with MongoDB
 
@@ -137,4 +157,19 @@ nest g service book
 
 ```
 npm install class-validator class-transformer --save
+```
+
+## For applying authentication (using passport)
+
+```
+npm install --save @nestjs/passport passport passport-local
+```
+
+```
+npm install --save-dev @types/passport-local
+```
+
+- Bcrypt (bcryptjs)
+```
+npm install --save bcryptjs
 ```
