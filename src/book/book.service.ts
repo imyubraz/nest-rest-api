@@ -15,7 +15,14 @@ export class BookService {
     ){}
 
     async findAllBooks(query: Query): Promise<Book[]>{
-        console.log(query);
+        // console.log(query);
+
+        const resultsPerPage = 2
+        const currentPage = Number(query.page) || 1
+
+        const limit = resultsPerPage || 0
+            // skipping results formula (based on page no.)
+        const skip = resultsPerPage * (currentPage - 1)
 
             // destructuring keyword from query object
         const {keyword} = query;
@@ -27,7 +34,7 @@ export class BookService {
             }
         } : {};
         
-        const books = await this.bookModel.find({...searchObj});
+        const books = await this.bookModel.find({...searchObj}).limit(limit).skip(skip);
         return books;
     }
 
