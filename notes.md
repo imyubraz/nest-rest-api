@@ -159,7 +159,7 @@ export class AppModule {}
 npm install class-validator class-transformer --save
 ```
 
-## For applying authentication (using passport)
+## For applying authentication and authorization (using passport)
 
 ```
 npm install --save @nestjs/passport passport passport-local
@@ -172,4 +172,9 @@ npm install --save-dev @types/passport-local
 - Bcrypt (bcryptjs)
 ```
 npm install --save bcryptjs
+```
+
+- passport-jwt
+```
+npm install --save passport-jwt
 ```
