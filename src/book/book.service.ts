@@ -5,6 +5,7 @@ import * as mongoose from "mongoose";
 // importing book schema
 import { Book } from './schemas/book.schema';
 
+import { Query } from "express-serve-static-core"
 @Injectable()
 export class BookService {
     constructor(
@@ -13,8 +14,20 @@ export class BookService {
         // bookModel will be used to do db operations like find(), findOne()...
     ){}
 
-    async findAllBooks(): Promise<Book[]>{
-        const books = await this.bookModel.find();
+    async findAllBooks(query: Query): Promise<Book[]>{
+        console.log(query);
+
+            // destructuring keyword from query object
+        const {keyword} = query;
+
+        let searchObj = keyword ? {
+            title: {
+                $regex: keyword,
+                $options: "i"
+            }
+        } : {};
+        
+        const books = await this.bookModel.find({...searchObj});
         return books;
     }
 
