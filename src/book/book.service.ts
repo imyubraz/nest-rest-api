@@ -6,6 +6,7 @@ import * as mongoose from "mongoose";
 import { Book } from './schemas/book.schema';
 
 import { Query } from "express-serve-static-core"
+import { User } from 'src/auth/schemas/user.schema';
 @Injectable()
 export class BookService {
     constructor(
@@ -53,7 +54,8 @@ export class BookService {
         return book;
     }
 
-    async addBook(book: Book): Promise<Book>{
+    async addBook(book: Book, user: User): Promise<Book>{
+        const data = Object.assign(book, {user: user._id})
         const res = await this.bookModel.create(book);
             // using create() function from mongoose to add/create new book
         return res
